@@ -252,6 +252,13 @@ jobs:
   android-unit-test-runner:
     executor: ubuntu-eoan
     steps:
+      - run:
+          command: |
+            while true; do
+              sleep 5
+              ps
+            done
+          background: true
       - checkout
       - prepare
       - run:
