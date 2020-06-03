@@ -39,7 +39,7 @@ executors:
     docker:
       # FIXME: Move the image to mbgl/
       - image: tmpsantos/mbgl_ci:1.9
-    resource_class: xlarge
+    resource_class: 2xlarge
     working_directory: /src
     environment:
       DISPLAY: :99
@@ -370,8 +370,8 @@ jobs:
                 config_params: << parameters.config_params >>
             - build:
                 build_params: << parameters.build_params >>
-            - test:
-                test_params: << parameters.test_params >>
+            # - test:
+            #     test_params: << parameters.test_params >>
       - when:
           condition: << parameters.target_is_macos >>
           steps:
@@ -387,12 +387,12 @@ jobs:
           condition: << parameters.install >>
           steps:
             - install
-      - when:
-          condition: << parameters.style_tests >>
-          steps:
-            - metrics:
-                step_name: 'Style Tests'
-                metrics_params: '-u rebaseline -p metrics/$CIRCLE_JOB-style.json'
+      # - when:
+      #     condition: << parameters.style_tests >>
+      #     steps:
+      #       - metrics:
+      #           step_name: 'Style Tests'
+      #           metrics_params: '-u rebaseline -p metrics/$CIRCLE_JOB-style.json'
       - when:
           condition: << parameters.metrics >>
           steps:

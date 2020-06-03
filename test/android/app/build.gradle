@@ -22,6 +22,7 @@ android {
             cmake {
                 arguments '-DANDROID_CCACHE=ccache'
                 arguments '-DANDROID_STL=c++_static'
+                arguments '-DCMAKE_BUILD_PARALLEL_LEVEL=4'
                 targets 'mbgl-test-runner'
             }
         }
