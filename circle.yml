@@ -14,13 +14,10 @@ workflows:
   version: 2
   development:
     jobs:
-      - sanity-checks
       - build-template:
           name: linux-gcc8-release
           executor_name: ubuntu-eoan
           target_is_linux: true
-          requires:
-            - sanity-checks
           config_params: '-G Ninja -DCMAKE_INSTALL_PREFIX=/tmp/workspace/install/$CIRCLE_JOB -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8'
           install: true
           metrics: true
