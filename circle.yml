@@ -256,11 +256,15 @@ jobs:
           command: |
             while true; do
               sleep 5
-              ps
+              ps aux
+              echo "======"
             done
           background: true
       - checkout
       - prepare
+      - run:
+          name: install latest ninja toolchain
+          command: apt-get -y install ninja-build cmake
       - run:
           name: Build UnitTestRunner APK
           command: |
