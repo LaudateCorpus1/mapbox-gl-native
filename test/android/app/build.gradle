@@ -22,7 +22,6 @@ android {
             cmake {
                 arguments '-DANDROID_CCACHE=ccache'
                 arguments '-DANDROID_STL=c++_static'
-                arguments '-DCMAKE_BUILD_PARALLEL_LEVEL=4'
                 targets 'mbgl-test-runner'
             }
         }
@@ -33,7 +32,7 @@ android {
     }
     externalNativeBuild {
         cmake {
-            version '3.13'
+            version '3.13.4'
             path '../../../CMakeLists.txt'
         }
     }
