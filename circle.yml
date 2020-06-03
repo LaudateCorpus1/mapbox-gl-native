@@ -251,6 +251,7 @@ commands:
 jobs:
   android-unit-test-runner:
     executor: ubuntu-eoan
+    resource_class: 2xlarge
     steps:
       - run:
           command: |
